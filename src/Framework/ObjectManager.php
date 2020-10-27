@@ -4,6 +4,10 @@ declare(strict_types = 1);
 
 namespace EconoCargo\Framework;
 
+use DI\DependencyException;
+use DI\NotFoundException;
+use EconoCargo\ApiFactory;
+
 /**
  * Class ObjectManager
  */
@@ -19,12 +23,12 @@ class ObjectManager
      * @param array  $parameters
      *
      * @return mixed
-     * @throws \DI\DependencyException
-     * @throws \DI\NotFoundException
+     * @throws DependencyException
+     * @throws NotFoundException
      */
-    public static function create($class, array $parameters = [])
+    public static function create(string $class, array $parameters = [])
     {
-        return DI\ContainerRepository::getInstance(\EconoCargo\ApiFactory::$config)->make($class, $parameters);
+        return DI\ContainerRepository::getInstance(ApiFactory::$config)->make($class, $parameters);
     }
 
     /**
@@ -32,10 +36,10 @@ class ObjectManager
      * @param array  $parameters
      *
      * @return mixed
-     * @throws \DI\DependencyException
-     * @throws \DI\NotFoundException
+     * @throws DependencyException
+     * @throws NotFoundException
      */
-    public static function get($class, array $parameters = [])
+    public static function get(string $class, array $parameters = [])
     {
         if (!isset(self::$resolvedObjects[$class])) {
             self::$resolvedObjects[$class] = self::create($class, $parameters);

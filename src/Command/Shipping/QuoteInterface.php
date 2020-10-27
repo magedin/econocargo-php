@@ -109,11 +109,11 @@ interface QuoteInterface
     public function setDestinyUFName(string $name) : self;
 
     /**
-     * @param string $code
+     * @param int $code
      *
      * @return $this
      */
-    public function setDestinyIBGECode(string $code) : self;
+    public function setDestinyIBGECode(int $code) : self;
 
     /**
      * @param string $postcode

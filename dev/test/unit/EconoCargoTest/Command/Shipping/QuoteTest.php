@@ -81,11 +81,11 @@ class QuoteTest extends TestCase
     public function setDestinyIBGECode()
     {
         $field = Quote::FIELD_LOCAL_DEST_IBGE;
-        $expected = 'SP';
+        $expected = 12345;
 
         $this->object->setDestinyIBGECode($expected);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":"'.$expected.'"}', $this->object->toJson());
+        $this->assertEquals('{"'.$field.'":'.$expected.'}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -196,7 +196,7 @@ class QuoteTest extends TestCase
         $expected = true;
 
         $this->object->setCheaperQuote($expected);
-        $this->assertEquals($expected, $this->object->getData($field));
+        $this->assertTrue($this->object->getData($field));
         $this->assertEquals('{"'.$field.'":true}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
@@ -210,7 +210,7 @@ class QuoteTest extends TestCase
         $expected = false;
 
         $this->object->setCheaperQuote($expected);
-        $this->assertEquals($expected, $this->object->getData($field));
+        $this->assertFalse($this->object->getData($field));
         $this->assertEquals('{"'.$field.'":false}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
@@ -227,5 +227,47 @@ class QuoteTest extends TestCase
         $this->assertEquals($expected, $this->object->getData($field));
         $this->assertEquals('{"'.$field.'":'.$expected.'}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
+    }
+
+    /**
+     * @test
+     */
+    public function fullTest()
+    {
+        $expectedArray = [
+            "WS_Empresa_CNPJ" => "05663266000219",
+            "WS_Pedido_Cod" => "123456",
+            "WS_Local_Dest_ID" => "9836",
+            "WS_Local_Dest_UFNome" => "SP",
+            "WS_Local_Dest_CodIBGE" => 0,
+            "WS_Local_Dest_CEP" => "06395-010",
+            "WS_Seguimento_ID" => 5,
+            "WS_Dest_CNPJ" => "12345678901234",
+            "WS_Dest_CPF" => "01234567890",
+            "WS_Dim_ValTot" => 0.9,
+            "WS_Peso_ValTot" => 150,
+            "WS_NFiscal_ValTot" => 1500,
+            "IsMenorCotacao" => true,
+            "WS_TpRespCot" => 3
+        ];
+
+        $this->object
+            ->setCompanyCNPJ('05663266000219')
+            ->setOrderNumber('123456')
+            ->setDestinyId('9836')
+            ->setDestinyUFName('SP')
+            ->setDestinyIBGECode(0)
+            ->setDestinyPostcode('06395-010')
+            ->setSegmentId(5)
+            ->setDestinyCNPJ('12345678901234')
+            ->setDestinyCPF('01234567890')
+            ->setDimensionsTotalValue(0.9)
+            ->setWeightTotalValue(150)
+            ->setInvoiceTotalValue(1500)
+            ->setCheaperQuote(true)
+            ->setResponseQuoteType(3);
+
+        $this->assertEquals($expectedArray, $this->object->toArray());
+        $this->assertEquals(json_encode($expectedArray), $this->object->toJson());
     }
 }

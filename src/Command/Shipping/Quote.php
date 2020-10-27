@@ -46,7 +46,7 @@ class Quote extends CommandAbstract implements QuoteInterface
     /**
      * @inheritDoc
      */
-    public function setDestinyIBGECode(string $code) : QuoteInterface
+    public function setDestinyIBGECode(int $code) : QuoteInterface
     {
         return $this->setData(self::FIELD_LOCAL_DEST_IBGE , $code);
     }
