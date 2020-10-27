@@ -24,7 +24,7 @@ abstract class FactoryAbstract implements FactoryInterface
      * @param \EconoCargo\Framework\ObjectManager $objectManager
      */
     public function __construct(
-        \Frenet\Framework\ObjectManager $objectManager
+        \EconoCargo\Framework\ObjectManager $objectManager
     ) {
         $this->objectManager = $objectManager;
     }

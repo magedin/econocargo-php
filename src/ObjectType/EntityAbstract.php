@@ -1,6 +1,6 @@
 <?php
 
-namespace Frenet\ObjectType;
+namespace EconoCargo\ObjectType;
 
 use EconoCargo\Framework\Data\DataObject;
 use EconoCargo\Framework\Data\SerializerInterface;

@@ -26,7 +26,7 @@ abstract class ResponseSuccessAbstract extends ResponseAbstract implements Respo
      */
     public function __construct(
         \Psr\Http\Message\ResponseInterface $response,
-        \Frenet\Framework\Data\SerializerInterface $serializer
+        \EconoCargo\Framework\Data\SerializerInterface $serializer
     ) {
         $this->responseObject = $response;
         $this->serializer = $serializer;

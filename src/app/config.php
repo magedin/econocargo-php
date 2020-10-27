@@ -42,6 +42,7 @@ return [
     /** Framework Objects */
     Framework\Data\SerializerInterface::class => autowire(Framework\Data\Serializer::class),
     Framework\Data\DataObjectInterface::class => autowire(Framework\Data\DataObject::class),
+    Framework\Object\FactoryInterface::class => autowire(Framework\Object\GodFactory::class),
 
     /** Other Objects */
     \GuzzleHttp\ClientInterface::class => autowire(\GuzzleHttp\Client::class),

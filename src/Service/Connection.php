@@ -4,8 +4,10 @@ declare(strict_types = 1);
 
 namespace EconoCargo\Service;
 
+use EconoCargo\ConfigPool;
 use Psr\Http\Message\ResponseInterface;
 use EconoCargo\Framework\Http\Response as FrameworkResponse;
+use TiagoSampaio\EventObserver\EventDispatcherInterface;
 
 /**
  * Class Connection
@@ -33,12 +35,12 @@ class Connection implements ConnectionInterface
     private $resultFactory;
 
     /**
-     * @var \EconoCargo\ConfigPool
+     * @var ConfigPool
      */
     private $configPool;
 
     /**
-     * @var \TiagoSampaio\EventObserver\EventDispatcherInterface
+     * @var EventDispatcherInterface
      */
     private $eventDispatcher;
 
@@ -48,25 +50,25 @@ class Connection implements ConnectionInterface
     private $eventData = [];
 
     /**
-     * @var \Frenet\Event\Observer\ObserverFactory
+     * @var \EconoCargo\Event\Observer\ObserverFactory
      */
     private $observerFactory;
 
     /**
      * Connection constructor.
      *
-     * @param \TiagoSampaio\EventObserver\EventDispatcherInterface $eventDispatcher
-     * @param \Frenet\ConfigPool                                   $configPool
-     * @param \Frenet\Event\Observer\ObserverFactory               $observerFactory
+     * @param EventDispatcherInterface $eventDispatcher
+     * @param \EconoCargo\ConfigPool                                   $configPool
+     * @param \EconoCargo\Event\Observer\ObserverFactory               $observerFactory
      * @param ClientFactory                                        $clientFactory
      * @param Response\SuccessFactory                              $responseSuccessFactory
      * @param Response\ExceptionFactory                            $responseExceptionFactory
      * @param ResultFactory                                        $resultFactory
      */
     public function __construct(
-        \TiagoSampaio\EventObserver\EventDispatcherInterface $eventDispatcher,
-        \Frenet\ConfigPool $configPool,
-        \Frenet\Event\Observer\ObserverFactory $observerFactory,
+        EventDispatcherInterface $eventDispatcher,
+        ConfigPool $configPool,
+        \EconoCargo\Event\Observer\ObserverFactory $observerFactory,
         ClientFactory $clientFactory,
         Response\SuccessFactory $responseSuccessFactory,
         Response\ExceptionFactory $responseExceptionFactory,

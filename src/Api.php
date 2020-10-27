@@ -10,7 +10,7 @@ namespace EconoCargo;
 class Api implements ApiInterface
 {
     /**
-     * @var \Frenet\Service\ConnectionInterface
+     * @var \EconoCargo\Service\ConnectionInterface
      */
     private $connection;
 
