@@ -39,7 +39,7 @@ class ConfigPool
     /**
      * @return Config\Credentials
      */
-    public function credentials()
+    public function credentials(): Config\Credentials
     {
         return $this->credentials;
     }
@@ -47,7 +47,7 @@ class ConfigPool
     /**
      * @return Config\Service
      */
-    public function service()
+    public function service(): Config\Service
     {
         return $this->service;
     }
@@ -55,7 +55,7 @@ class ConfigPool
     /**
      * @return Config\Debugger
      */
-    public function debugger()
+    public function debugger(): Config\Debugger
     {
         return $this->debugger;
     }

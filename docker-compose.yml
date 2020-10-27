@@ -4,9 +4,8 @@ version: "3"
 
 services:
   php:
-    image: magedin/php:7.2-fpm-buster
+    image: php:7.1-fpm-buster
     container_name: econocargo_php
-    user: www
     volumes:
       - ~/.composer:/var/www/.composer:cached
       - ./:/var/www/html
