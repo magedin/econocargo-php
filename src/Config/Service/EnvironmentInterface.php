@@ -10,15 +10,15 @@ interface EnvironmentInterface
     /**
      * @return string
      */
-    public function getProtocol() : string;
+    public function getProtocol(): string;
 
     /**
      * @return string
      */
-    public function getHost() : string;
+    public function getHost(): string;
 
     /**
      * @return int
      */
-    public function getPort() : int;
+    public function getPort(): int;
 }

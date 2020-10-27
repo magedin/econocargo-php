@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace EconoCargo\Config;
 
@@ -61,7 +61,7 @@ class Service implements ConfigInterface
      *
      * @return $this
      */
-    public function isTesting(bool $flag = false) : self
+    public function isTesting(bool $flag = false): self
     {
         $this->isTesting = $flag;
         return $this;
@@ -70,7 +70,7 @@ class Service implements ConfigInterface
     /**
      * @return Service\EnvironmentInterface
      */
-    private function getEnvironment() : Service\EnvironmentInterface
+    private function getEnvironment(): Service\EnvironmentInterface
     {
         if (true === $this->isTesting) {
             return $this->testingEnvironment;

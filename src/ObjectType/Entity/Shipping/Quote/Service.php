@@ -31,7 +31,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function getOrderNumber() : string
+    public function getOrderNumber(): string
     {
         return $this->getData(self::FIELD_ORDER_NUMBER);
     }
@@ -39,7 +39,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function getMessage() : string
+    public function getMessage(): string
     {
         return $this->getData(self::FIELD_MESSAGE);
     }
@@ -47,7 +47,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function getDatetime() : string
+    public function getDatetime(): string
     {
         return $this->getData(self::FIELD_DATETIME);
     }
@@ -55,7 +55,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function getIndication() : int
+    public function getIndication(): int
     {
         return $this->getData(self::FIELD_INDICATION);
     }
@@ -63,7 +63,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function getFreightValue() : float
+    public function getFreightValue(): float
     {
         return (float) $this->getData(self::FIELD_FREIGHT_VALUE);
     }
@@ -71,7 +71,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function getEstimationDays() : int
+    public function getEstimationDays(): int
     {
         return (int) $this->getData(self::FIELD_ESTIMATION_DAYS);
     }
@@ -79,7 +79,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function getMovSimId() : string
+    public function getMovSimId(): string
     {
         return $this->getData(self::FIELD_MOVSIM_ID);
     }
@@ -87,7 +87,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function getMovCotId() : string
+    public function getMovCotId(): string
     {
         return $this->getData(self::FIELD_MOVCOT_ID);
     }
@@ -95,7 +95,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function getTransporterCNPJ() : string
+    public function getTransporterCNPJ(): string
     {
         return $this->getData(self::FIELD_TRANSPORTER_CNPJ);
     }
@@ -103,7 +103,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function getTransporterName() : string
+    public function getTransporterName(): string
     {
         return $this->getData(self::FIELD_TRANSPORTER_NAME);
     }
@@ -111,7 +111,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function getTransporterEmail() : string
+    public function getTransporterEmail(): string
     {
         return $this->getData(self::FIELD_TRANSPORTER_EMAIL);
     }
@@ -119,7 +119,7 @@ class Service extends EntityAbstract implements ServiceInterface
     /**
      * @inheritDoc
      */
-    public function isError() : bool
+    public function isError(): bool
     {
         return $this->getIndication() === 0;
     }

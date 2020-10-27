@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace EconoCargo\ObjectType\Entity\Shipping;
 
@@ -36,7 +36,7 @@ class Quote extends EntityAbstract implements QuoteInterface
     /**
      * @return int
      */
-    public function countShippingServices() : int
+    public function countShippingServices(): int
     {
         return (int) count($this->getShippingServices());
     }

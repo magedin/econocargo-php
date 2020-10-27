@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace EconoCargo\Command\Shipping;
 
@@ -85,96 +85,96 @@ interface QuoteInterface
      *
      * @return $this
      */
-    public function setCompanyCNPJ(string $cnpj) : self;
+    public function setCompanyCNPJ(string $cnpj): self;
 
     /**
      * @param string $orderNumber
      *
      * @return $this
      */
-    public function setOrderNumber(string $orderNumber) : self;
+    public function setOrderNumber(string $orderNumber): self;
 
     /**
      * @param string $id
      *
      * @return $this
      */
-    public function setDestinyId(string $id) : self;
+    public function setDestinyId(string $id): self;
 
     /**
      * @param string $name
      *
      * @return $this
      */
-    public function setDestinyUFName(string $name) : self;
+    public function setDestinyUFName(string $name): self;
 
     /**
      * @param int $code
      *
      * @return $this
      */
-    public function setDestinyIBGECode(int $code) : self;
+    public function setDestinyIBGECode(int $code): self;
 
     /**
      * @param string $postcode
      *
      * @return $this
      */
-    public function setDestinyPostcode(string $postcode) : self;
+    public function setDestinyPostcode(string $postcode): self;
 
     /**
      * @param int $segmentId
      *
      * @return $this
      */
-    public function setSegmentId(int $segmentId) : self;
+    public function setSegmentId(int $segmentId): self;
 
     /**
      * @param string $cnpj
      *
      * @return $this
      */
-    public function setDestinyCNPJ(string $cnpj) : self;
+    public function setDestinyCNPJ(string $cnpj): self;
 
     /**
      * @param string $cpf
      *
      * @return $this
      */
-    public function setDestinyCPF(string $cpf) : self;
+    public function setDestinyCPF(string $cpf): self;
 
     /**
      * @param float $value
      *
      * @return $this
      */
-    public function setDimensionsTotalValue(float $value) : self;
+    public function setDimensionsTotalValue(float $value): self;
 
     /**
      * @param float $value
      *
      * @return $this
      */
-    public function setWeightTotalValue(float $value) : self;
+    public function setWeightTotalValue(float $value): self;
 
     /**
      * @param float $value
      *
      * @return $this
      */
-    public function setInvoiceTotalValue(float $value) : self;
+    public function setInvoiceTotalValue(float $value): self;
 
     /**
      * @param bool $cheaperQuote
      *
      * @return $this
      */
-    public function setCheaperQuote(bool $cheaperQuote) : self;
+    public function setCheaperQuote(bool $cheaperQuote): self;
 
     /**
      * @param int $type
      *
      * @return $this
      */
-    public function setResponseQuoteType(int $type) : self;
+    public function setResponseQuoteType(int $type): self;
 }

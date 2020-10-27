@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace EconoCargo\ObjectType\Entity\Shipping\Quote;
 
@@ -24,60 +24,60 @@ interface ServiceInterface
     /**
      * @return string
      */
-    public function getOrderNumber() : string;
+    public function getOrderNumber(): string;
 
     /**
      * @return string
      */
-    public function getMessage() : string;
+    public function getMessage(): string;
 
     /**
      * @return string
      */
-    public function getDatetime() : string;
+    public function getDatetime(): string;
 
     /**
      * @return int
      */
-    public function getIndication() : int;
+    public function getIndication(): int;
 
     /**
      * @return float
      */
-    public function getFreightValue() : float;
+    public function getFreightValue(): float;
 
     /**
      * @return int
      */
-    public function getEstimationDays() : int;
+    public function getEstimationDays(): int;
 
     /**
      * @return string
      */
-    public function getMovSimId() : string;
+    public function getMovSimId(): string;
 
     /**
      * @return string
      */
-    public function getMovCotId() : string;
+    public function getMovCotId(): string;
 
     /**
      * @return string
      */
-    public function getTransporterCNPJ() : string;
+    public function getTransporterCNPJ(): string;
 
     /**
      * @return string
      */
-    public function getTransporterName() : string;
+    public function getTransporterName(): string;
 
     /**
      * @return string
      */
-    public function getTransporterEmail() : string;
+    public function getTransporterEmail(): string;
 
     /**
      * @return bool
      */
-    public function isError() : bool;
+    public function isError(): bool;
 }

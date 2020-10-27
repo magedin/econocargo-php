@@ -27,7 +27,7 @@ abstract class AbstractEnvironment implements EnvironmentInterface
     /**
      * @inheritDoc
      */
-    public function getProtocol() : string
+    public function getProtocol(): string
     {
         return (string) $this->protocol;
     }
@@ -35,7 +35,7 @@ abstract class AbstractEnvironment implements EnvironmentInterface
     /**
      * @inheritDoc
      */
-    public function getHost() : string
+    public function getHost(): string
     {
         return (string) $this->host;
     }
@@ -43,7 +43,7 @@ abstract class AbstractEnvironment implements EnvironmentInterface
     /**
      * @inheritDoc
      */
-    public function getPort() : int
+    public function getPort(): int
     {
         return (int) $this->port;
     }

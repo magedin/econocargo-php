@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace EconoCargo\Config;
 
@@ -17,7 +17,7 @@ class Credentials implements ConfigInterface
     /**
      * @return string
      */
-    public function getToken() : string
+    public function getToken(): string
     {
         return (string) $this->token;
     }
@@ -27,7 +27,7 @@ class Credentials implements ConfigInterface
      *
      * @return $this
      */
-    public function setToken(string $token) : self
+    public function setToken(string $token): self
     {
         $this->token = $token;
         return $this;
