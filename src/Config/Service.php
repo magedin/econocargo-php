@@ -4,71 +4,40 @@ declare(strict_types = 1);
 
 namespace EconoCargo\Config;
 
-use EconoCargo\Framework\Exception\WrongDataTypeException;
-
 /**
  * Class Service
  */
 class Service implements ConfigInterface
 {
     /**
-     * @var array
+     * @var Service\TestingEnvironment
      */
-    private $validProtocols = [
-        'http', 'https'
-    ];
+    private $testingEnvironment;
 
     /**
-     * @var string
+     * @var Service\ProductionEnvironment
      */
-    private $protocol = 'http';
+    private $productionEnvironment;
 
     /**
-     * @var string
+     * @var bool
      */
-    private $defaultHost = '52.67.21.41';
+    private $isTesting = false;
 
-    /**
-     * @var string
-     */
-    private $defaultPort = '80';
-
-    /**
-     * @var string
-     */
-    private $host = null;
-
-    /**
-     * @var string
-     */
-    private $port = null;
+    public function __construct(
+        Service\TestingEnvironment $testingEnvironment,
+        Service\ProductionEnvironment $productionEnvironment
+    ) {
+        $this->testingEnvironment = $testingEnvironment;
+        $this->productionEnvironment = $productionEnvironment;
+    }
 
     /**
      * @return string
      */
     public function getProtocol()
     {
-        return (string) $this->protocol;
-    }
-
-    /**
-     * @param string $protocol
-     *
-     * @return $this
-     *
-     * @throws WrongDataTypeException
-     */
-    public function setProtocol($protocol)
-    {
-        $protocol = trim(strtolower($protocol));
-
-        if (!$this->validateProtocol($protocol)) {
-            throw new WrongDataTypeException('Invalid protocol provided.');
-        }
-
-        $this->protocol = $protocol;
-
-        return $this;
+        return (string) $this->getEnvironment()->getProtocol();
     }
 
     /**
@@ -76,19 +45,7 @@ class Service implements ConfigInterface
      */
     public function getHost()
     {
-        return $this->getHostname();
-    }
-
-    /**
-     * @return string
-     */
-    public function getHostname()
-    {
-        if (empty($this->host)) {
-            return $this->defaultHost;
-        }
-
-        return (string) $this->normalizeHostname($this->host);
+        return (string) $this->getEnvironment()->getHost();
     }
 
     /**
@@ -96,77 +53,29 @@ class Service implements ConfigInterface
      */
     public function getPort()
     {
-        if ($this->port) {
-            return $this->port;
-        }
-
-        return $this->defaultPort;
+        return (int) $this->getEnvironment()->getPort();
     }
 
     /**
-     * @param string $host
+     * @param bool $flag
      *
      * @return $this
-     *
-     * @throws WrongDataTypeException
      */
-    public function setHostname(string $host)
+    public function isTesting(bool $flag = false) : self
     {
-        if (!$this->validateHostname($host)) {
-            throw new WrongDataTypeException('Invalid hostname format provided.');
-        }
-
-        $this->host = $this->normalizeHostname($host);
-
+        $this->isTesting = $flag;
         return $this;
     }
 
     /**
-     * @param string $host
-     *
-     * @return bool
+     * @return Service\EnvironmentInterface
      */
-    private function validateHostname($host)
+    private function getEnvironment() : Service\EnvironmentInterface
     {
-        $host = $this->normalizeHostname($host);
-
-        if (empty($host)) {
-            return false;
+        if (true === $this->isTesting) {
+            return $this->testingEnvironment;
         }
 
-        return true;
-    }
-
-    /**
-     * @param string $host
-     *
-     * @return string
-     */
-    private function normalizeHostname($host)
-    {
-        $host = trim($host);
-        $host = strtolower($host);
-
-        return $host;
-    }
-
-    /**
-     * @param string $protocol
-     *
-     * @return bool
-     */
-    private function validateProtocol($protocol)
-    {
-        $protocol = strtolower($protocol);
-
-        if (empty($protocol)) {
-            return false;
-        }
-
-        if (!in_array($protocol, $this->validProtocols)) {
-            return false;
-        }
-
-        return true;
+        return $this->productionEnvironment;
     }
 }

@@ -219,9 +219,10 @@ class Connection implements ConnectionInterface
     private function buildUri($resourcePath, array $config = [])
     {
         $query = (array) (isset($config['query']) ? $config['query'] : null);
-        $url = vsprintf('%s://%s/%s', [
+        $url = vsprintf('%s://%s:%s/%s', [
             $this->configPool->service()->getProtocol(),
             $this->configPool->service()->getHost(),
+            $this->configPool->service()->getPort(),
             $resourcePath,
         ]);
 
