@@ -8,10 +8,13 @@ php:
     - 7.1
     - 7.2
     - 7.3
+    - 7.4
     - hhvm
 matrix:
     allow_failures:
         - php: hhvm
+        - php: 7.0
+        - php: 7.1
 before_script:
     - composer install --no-interaction
 script:
