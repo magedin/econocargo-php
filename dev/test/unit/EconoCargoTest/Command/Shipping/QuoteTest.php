@@ -24,9 +24,12 @@ class QuoteTest extends TestCase
      */
     public function setCompanyCNPJ()
     {
+        $field = Quote::FIELD_COMPANY_CNPJ;
         $expected = '12345678901234';
 
         $this->object->setCompanyCNPJ($expected);
         $this->assertEquals($expected, $this->object->getData(Quote::FIELD_COMPANY_CNPJ));
+        $this->assertEquals('{"'.$field.'":"'.$expected.'"}', $this->object->toJson());
+        $this->assertEquals(["WS_Empresa_CNPJ" => "12345678901234"], $this->object->toArray());
     }
 }
