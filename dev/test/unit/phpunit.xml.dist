@@ -6,14 +6,9 @@
 >
     <testsuites>
         <testsuite name="EconoCargo Unit Tests">
-            <directory suffix="Test.php">./EconoCargo</directory>
+            <directory suffix="Test.php">.</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">../../../src</directory>
-        </whitelist>
-    </filter>
     <php>
         <ini name="xdebug.max_nesting_level" value="200"/>
         <ini name="date.timezone" value="UTC"/>

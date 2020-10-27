@@ -5,10 +5,13 @@ declare(strict_types = 1);
 namespace EconoCargo\Command;
 
 use EconoCargo\Framework\Data\DataObject;
+use EconoCargo\Framework\Data\SerializerInterface;
+use EconoCargo\Framework\Object\FactoryInterface;
+use EconoCargo\ObjectType\EntityInterface;
+use EconoCargo\Service\ConnectionInterface;
 
 /**
  * Class MethodAbstract
- * @package Frenet\Command
  */
 abstract class CommandAbstract extends DataObject implements CommandInterface
 {
@@ -28,7 +31,7 @@ abstract class CommandAbstract extends DataObject implements CommandInterface
     protected $contentType = 'json';
 
     /**
-     * @var \Frenet\Service\ConnectionInterface
+     * @var ConnectionInterface
      */
     protected $connection;
 
@@ -43,25 +46,26 @@ abstract class CommandAbstract extends DataObject implements CommandInterface
     protected $optionalConfig = [];
 
     /**
-     * @var \Frenet\Framework\Object\FactoryInterface
+     * @var FactoryInterface
      */
     protected $typeFactory;
 
     /**
-     * @var \Frenet\Framework\Data\SerializerInterface
+     * @var SerializerInterface
      */
     private $serializer;
 
     /**
      * CommandAbstract constructor.
      *
-     * @param \Frenet\Service\ConnectionInterface        $connection
-     * @param \Frenet\Framework\Data\SerializerInterface $serializer
+     * @param ConnectionInterface $connection
+     * @param SerializerInterface $serializer
+     * @param FactoryInterface    $typeFactory
      */
     public function __construct(
-        \Frenet\Service\ConnectionInterface $connection,
-        \Frenet\Framework\Data\SerializerInterface $serializer,
-        \Frenet\Framework\Object\FactoryInterface $typeFactory
+        ConnectionInterface $connection,
+        SerializerInterface $serializer,
+        FactoryInterface $typeFactory
     ) {
         $this->connection = $connection;
         $this->serializer = $serializer;
@@ -127,10 +131,9 @@ abstract class CommandAbstract extends DataObject implements CommandInterface
      */
     public function execute()
     {
-        /** @var \Frenet\Framework\Http\Response\ResponseInterface $response */
         $response = $this->connection->request($this->getRequestMethod(), $this->getUrlPath(), $this->toArray());
 
-        /** @var \Frenet\ObjectType\EntityInterface $type */
+        /** @var EntityInterface $type */
         $type = $this->typeFactory->create(['data' => (array) $response->getBody()]);
 
         return $type;
