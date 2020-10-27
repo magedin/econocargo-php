@@ -17,8 +17,8 @@ return [
 //    Entity\Postcode\AddressInterface::class => autowire(Entity\Postcode\Address::class),
 //    Entity\Shipping\InfoInterface::class => autowire(Entity\Shipping\Info::class),
 //    Entity\Shipping\Info\ServiceInterface::class => autowire(Entity\Shipping\Info\Service::class),
-//    Entity\Shipping\QuoteInterface::class => autowire(Entity\Shipping\Quote::class),
-//    Entity\Shipping\Quote\ServiceInterface::class => autowire(Entity\Shipping\Quote\Service::class),
+    Entity\Shipping\QuoteInterface::class => autowire(Entity\Shipping\Quote::class),
+    Entity\Shipping\Quote\ServiceInterface::class => autowire(Entity\Shipping\Quote\Service::class),
 //    Entity\Tracking\TrackingInfoInterface::class => autowire(Entity\Tracking\TrackingInfo::class),
 //    Entity\Tracking\TrackingInfo\EventInterface::class => autowire(Entity\Tracking\TrackingInfo\Event::class),
 
@@ -30,7 +30,7 @@ return [
     /** Command Methods */
 //    Command\Postcode\AddressInterface::class => autowire(Command\Postcode\Address::class),
 //    Command\Shipping\InfoInterface::class => autowire(Command\Shipping\Info::class),
-//    Command\Shipping\QuoteInterface::class => autowire(Command\Shipping\Quote::class),
+    Command\Shipping\QuoteInterface::class => autowire(Command\Shipping\Quote::class),
 //    Command\Tracking\TrackingInfoInterface::class => autowire(Command\Tracking\TrackingInfo::class),
 
     /** Service Objects */

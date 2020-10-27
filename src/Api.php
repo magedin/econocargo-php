@@ -4,13 +4,15 @@ declare(strict_types = 1);
 
 namespace EconoCargo;
 
+use EconoCargo\Service\ConnectionInterface;
+
 /**
  * Class Api
  */
 class Api implements ApiInterface
 {
     /**
-     * @var \EconoCargo\Service\ConnectionInterface
+     * @var ConnectionInterface
      */
     private $connection;
 
@@ -28,28 +30,24 @@ class Api implements ApiInterface
      * Api constructor.
      *
      * @param Service\ConnectionInterface $connection
-     * @param Command\PostcodeInterface   $postcode
      * @param Command\ShippingInterface   $shipping
-     * @param Command\TrackingInterface   $tracking
-     * @param string                      $token
+     * @param ConfigPool                  $configPool
+     * @param string|null                 $token
      */
     public function __construct(
         Service\ConnectionInterface $connection,
-        Command\PostcodeInterface $postcode,
         Command\ShippingInterface $shipping,
-        Command\TrackingInterface $tracking,
         ConfigPool $configPool,
-        string $token
+        string $token = null
     ) {
         $this->connection = $connection;
-
-        $this->postcode = $postcode;
         $this->shipping = $shipping;
-        $this->tracking = $tracking;
         $this->configPool = $configPool;
 
         /** Set the token to config. */
-        $this->config()->credentials()->setToken($token);
+        if ($token) {
+            $this->config()->credentials()->setToken($token);
+        }
     }
 
     /**
@@ -60,8 +58,11 @@ class Api implements ApiInterface
         return $this->shipping;
     }
 
+    /**
+     * @return ConfigPool
+     */
     public function config()
     {
-        // TODO: Implement config() method.
+        return $this->configPool;
     }
 }

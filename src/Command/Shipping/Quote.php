@@ -5,12 +5,34 @@ declare(strict_types = 1);
 namespace EconoCargo\Command\Shipping;
 
 use EconoCargo\Command\CommandAbstract;
+use EconoCargo\Framework\Data\SerializerInterface;
+use EconoCargo\Service\ConnectionInterface;
 
 /**
  * Class Quote
  */
 class Quote extends CommandAbstract implements QuoteInterface
 {
+    /**
+     * @var string
+     */
+    protected $urlPath = 'rest/WSFFracRest01';
+
+    /**
+     * Quote constructor.
+     *
+     * @param ConnectionInterface             $connection
+     * @param SerializerInterface      $serializer
+     * @param \EconoCargo\ObjectType\Entity\Shipping\QuoteFactory $typeFactory
+     */
+    public function __construct(
+        \EconoCargo\Service\ConnectionInterface $connection,
+        \EconoCargo\Framework\Data\SerializerInterface $serializer,
+        \EconoCargo\ObjectType\Entity\Shipping\QuoteFactory $typeFactory
+    ) {
+        parent::__construct($connection, $serializer, $typeFactory);
+    }
+
     /**
      * @inheritDoc
      */

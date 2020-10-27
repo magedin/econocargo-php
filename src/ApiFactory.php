@@ -4,7 +4,11 @@ declare(strict_types = 1);
 
 namespace EconoCargo;
 
+use DI\Container;
+use DI\DependencyException;
+use DI\NotFoundException;
 use EconoCargo\Framework\DI\ContainerRepository;
+use EconoCargo\Framework\Exception\ExceptionInterface;
 
 /**
  * Class ApiFactory
@@ -13,7 +17,7 @@ class ApiFactory
 {
 
     /**
-     * @var \DI\Container
+     * @var Container
      */
     private static $container;
 
@@ -30,14 +34,14 @@ class ApiFactory
     private static $customConfig = [];
 
     /**
-     * @param string $token
-     * @param array  $config
+     * @param string|null $token
+     * @param array       $config
      *
      * @return ApiInterface
-     * @throws \DI\DependencyException
-     * @throws \DI\NotFoundException
+     * @throws DependencyException
+     * @throws NotFoundException
      */
-    public static function create(string $token, array $config = [])
+    public static function create(string $token = null, array $config = [])
     {
         if (!empty($config)) {
             /** If there's a customized configuration the application can load it. */
@@ -54,13 +58,13 @@ class ApiFactory
     }
 
     /**
-     * @param string $token
+     * @param string|null $token
      *
      * @return ApiInterface
-     * @throws \DI\DependencyException
-     * @throws \DI\NotFoundException
+     * @throws DependencyException
+     * @throws NotFoundException
      */
-    private static function createApiInstance(string $token)
+    private static function createApiInstance(string $token = null)
     {
         return self::$container->make(ApiInterface::class, [
             'token' => $token,
@@ -70,7 +74,7 @@ class ApiFactory
     /**
      * Setup the container.
      *
-     * @throws \EconoCargo\Framework\Exception\ExceptionInterface
+     * @throws ExceptionInterface
      */
     private static function setupContainer()
     {
@@ -82,7 +86,6 @@ class ApiFactory
      */
     private static function getConfig()
     {
-        $config = array_merge_recursive(self::$config, self::$customConfig);
-        return $config;
+        return array_merge_recursive(self::$config, self::$customConfig);
     }
 }

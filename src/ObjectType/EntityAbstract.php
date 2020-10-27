@@ -44,6 +44,17 @@ abstract class EntityAbstract extends DataObject implements EntityInterface
     }
 
     /**
+     * @param string|null       $field
+     * @param array|string|null $data
+     *
+     * @return array
+     */
+    protected function prepareNewData(string $field = null, $data = null)
+    {
+        return $data;
+    }
+
+    /**
      * @return void
      */
     private function applyMappings()
@@ -57,7 +68,7 @@ abstract class EntityAbstract extends DataObject implements EntityInterface
             }
 
             $field = $this->fieldMapping[$key];
-            $newData[$field] = $value;
+            $newData[$field] = $this->prepareNewData($field, $value);
         }
 
         $this->setData($newData);
