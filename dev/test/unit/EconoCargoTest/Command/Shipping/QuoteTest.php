@@ -14,7 +14,7 @@ class QuoteTest extends TestCase
      */
     private $object;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->object = $this->createObject(Quote::class);
     }
@@ -29,7 +29,7 @@ class QuoteTest extends TestCase
 
         $this->object->setCompanyCNPJ($expected);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":"'.$expected.'"}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":"' . $expected . '"}', $this->object->toJson());
         $this->assertEquals([$field => "12345678901234"], $this->object->toArray());
     }
 
@@ -43,7 +43,7 @@ class QuoteTest extends TestCase
 
         $this->object->setOrderNumber($expected);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":"'.$expected.'"}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":"' . $expected . '"}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -57,7 +57,7 @@ class QuoteTest extends TestCase
 
         $this->object->setDestinyId($expected);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":"'.$expected.'"}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":"' . $expected . '"}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -71,7 +71,7 @@ class QuoteTest extends TestCase
 
         $this->object->setDestinyUFName($expected);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":"'.$expected.'"}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":"' . $expected . '"}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -85,7 +85,7 @@ class QuoteTest extends TestCase
 
         $this->object->setDestinyIBGECode($expected);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":'.$expected.'}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":' . $expected . '}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -95,11 +95,12 @@ class QuoteTest extends TestCase
     public function setDestinyPostcode()
     {
         $field = Quote::FIELD_LOCAL_DEST_POSTCODE;
-        $expected = '06395-000';
+        $value = '06395-000';
+        $expected = '06395000';
 
-        $this->object->setDestinyPostcode($expected);
+        $this->object->setDestinyPostcode($value);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":"'.$expected.'"}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":"' . $expected . '"}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -113,7 +114,7 @@ class QuoteTest extends TestCase
 
         $this->object->setSegmentId($expected);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":'.$expected.'}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":' . $expected . '}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -123,11 +124,12 @@ class QuoteTest extends TestCase
     public function setDestinyCNPJ()
     {
         $field = Quote::FIELD_DEST_CNPJ;
+        $value = '12.345.678/9012-34';
         $expected = '12345678901234';
 
-        $this->object->setDestinyCNPJ($expected);
+        $this->object->setDestinyCNPJ($value);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":"'.$expected.'"}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":"' . $expected . '"}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -137,11 +139,12 @@ class QuoteTest extends TestCase
     public function setDestinyCPF()
     {
         $field = Quote::FIELD_DEST_CPF;
+        $value = '012.345.678-90';
         $expected = '01234567890';
 
-        $this->object->setDestinyCPF($expected);
+        $this->object->setDestinyCPF($value);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":"'.$expected.'"}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":"' . $expected . '"}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -155,7 +158,7 @@ class QuoteTest extends TestCase
 
         $this->object->setDimensionsTotalValue($expected);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":'.$expected.'}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":' . $expected . '}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -169,7 +172,7 @@ class QuoteTest extends TestCase
 
         $this->object->setWeightTotalValue($expected);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":'.$expected.'}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":' . $expected . '}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -183,7 +186,7 @@ class QuoteTest extends TestCase
 
         $this->object->setInvoiceTotalValue($expected);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":'.$expected.'}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":' . $expected . '}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -197,7 +200,7 @@ class QuoteTest extends TestCase
 
         $this->object->setCheaperQuote($expected);
         $this->assertTrue($this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":true}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":true}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -211,7 +214,7 @@ class QuoteTest extends TestCase
 
         $this->object->setCheaperQuote($expected);
         $this->assertFalse($this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":false}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":false}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -225,7 +228,7 @@ class QuoteTest extends TestCase
 
         $this->object->setResponseQuoteType($expected);
         $this->assertEquals($expected, $this->object->getData($field));
-        $this->assertEquals('{"'.$field.'":'.$expected.'}', $this->object->toJson());
+        $this->assertEquals('{"' . $field . '":' . $expected . '}', $this->object->toJson());
         $this->assertEquals([$field => $expected], $this->object->toArray());
     }
 
@@ -240,13 +243,13 @@ class QuoteTest extends TestCase
             "WS_Local_Dest_ID" => "9836",
             "WS_Local_Dest_UFNome" => "SP",
             "WS_Local_Dest_CodIBGE" => 0,
-            "WS_Local_Dest_CEP" => "06395-010",
+            "WS_Local_Dest_CEP" => "06395010",
             "WS_Seguimento_ID" => 5,
             "WS_Dest_CNPJ" => "12345678901234",
             "WS_Dest_CPF" => "01234567890",
             "WS_Dim_ValTot" => 0.9,
-            "WS_Peso_ValTot" => 150,
-            "WS_NFiscal_ValTot" => 1500,
+            "WS_Peso_ValTot" => 150.0,
+            "WS_NFiscal_ValTot" => 1500.0,
             "IsMenorCotacao" => true,
             "WS_TpRespCot" => 3
         ];

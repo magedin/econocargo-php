@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace EconoCargoTest;
 
@@ -21,7 +21,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         $config = [
             'definitions' => __DIR__ . '/../../../../src/app/config.php'
         ];
-        
+
         try {
             $container = \EconoCargo\Framework\DI\ContainerRepository::getInstance($config);
             $result = $container->make($objectClass, $parameters);
@@ -29,7 +29,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         } catch (\DI\NotFoundException $e) {
         } catch (\Exception $e) {
         }
-        
+
         return $result;
     }
 }

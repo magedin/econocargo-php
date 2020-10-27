@@ -31,7 +31,7 @@ class ServiceTest extends TestCase
         "WSOut_Transp_Email": "vix.coleta01@braspress.com"
     }';
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->object = $this->createObject(Service::class, [
             'data' => (array) json_decode($this->serviceDataMock, true),

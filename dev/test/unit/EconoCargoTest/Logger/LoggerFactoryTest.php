@@ -14,7 +14,7 @@ class LoggerFactoryTest extends TestCase
      */
     private $object;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->object = $this->createObject(LoggerFactory::class);
     }

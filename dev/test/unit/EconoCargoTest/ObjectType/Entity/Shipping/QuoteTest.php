@@ -92,7 +92,7 @@ class QuoteTest extends TestCase
         }
     }';
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->object = $this->createObject(Quote::class, [
             'data' => (array) json_decode($this->resultMock, true),
