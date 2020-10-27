@@ -2,7 +2,7 @@ dist: trusty
 language: php
 env:
     global:
-        - CODACY_PROJECT_TOKEN=95acc1fcf0a2418eb9d4de94545958e7
+        - CODACY_PROJECT_TOKEN=${CODACY_TOKEN}
 php:
     - 7.0
     - 7.1
