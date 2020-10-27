@@ -14,12 +14,12 @@ interface ConnectionInterface
     /**
      * @var string
      */
-    const METHOD_POST = 'POST';
+    public const METHOD_POST = 'POST';
 
     /**
      * @var string
      */
-    const METHOD_GET = 'GET';
+    public const METHOD_GET = 'GET';
 
     /**
      * @param string $method

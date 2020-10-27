@@ -13,22 +13,22 @@ interface CommandInterface
     /**
      * @var string
      */
-    const REQUEST_METHOD_GET = 'GET';
+    public const REQUEST_METHOD_GET = 'GET';
 
     /**
      * @var string
      */
-    const REQUEST_METHOD_POST = 'POST';
+    public const REQUEST_METHOD_POST = 'POST';
 
     /**
      * @var string
      */
-    const REQUEST_METHOD_PUT = 'PUT';
+    public const REQUEST_METHOD_PUT = 'PUT';
 
     /**
      * @var string
      */
-    const REQUEST_METHOD_HEAD = 'HEAD';
+    public const REQUEST_METHOD_HEAD = 'HEAD';
 
     /**
      * @return string

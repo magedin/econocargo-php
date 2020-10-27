@@ -11,21 +11,21 @@ class QuoteResponseType
      * Resposta = 1 Cotação.
      * Retorna os dados da Cotação de Menor Valor de Frete (R$)
      */
-    const TYPE_CHEAPER = 1;
+    public const TYPE_CHEAPER = 1;
 
     /**
      * @const int
      * Resposta = 1 Cotação.
      * Retorna os dados da Cotação de Menor Prazo Estimado (Dias) de entrega ao Destinatário
      */
-    const TYPE_FASTEST = 2;
+    public const TYPE_FASTEST = 2;
 
     /**
      * @const int
      * Resposta = Todas as Cotações.
      * Retorna todas as Cotações de Fretes que foram geradas, com o mínimo de 1 cotação
      */
-    const TYPE_ALL = 3;
+    public const TYPE_ALL = 3;
 
     /**
      * @const int
@@ -34,12 +34,12 @@ class QuoteResponseType
      *  - Se a {Diferença de Prazos} <= [Valor Predefinido] - Cotação enviada é a de Menor Valor
      *  - Se a {Diferença de Prazos} > [Valor Predefinido] - Cotação enviada é a de Menor Prazo
      */
-    const TYPE_ANALYTIC = 4;
+    public const TYPE_ANALYTIC = 4;
 
     /**
      * @const int
      * Analítica 02: Resposta = 2 Cotações.
      * Retorna os dados da Cotação de Menor Prazo e a Cotação de Menor Valor.
      */
-    const TYPE_CHEAPER_AND_FASTEST = 5;
+    public const TYPE_CHEAPER_AND_FASTEST = 5;
 }

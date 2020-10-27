@@ -13,72 +13,72 @@ interface QuoteInterface
     /**
      * @const string
      */
-    const FIELD_COMPANY_CNPJ = 'WS_Empresa_CNPJ';
+    public const FIELD_COMPANY_CNPJ = 'WS_Empresa_CNPJ';
 
     /**
      * @const string
      */
-    const FIELD_ORDER_NUMBER = 'WS_Pedido_Cod';
+    public const FIELD_ORDER_NUMBER = 'WS_Pedido_Cod';
 
     /**
      * @const string
      */
-    const FIELD_LOCAL_DEST_ID = 'WS_Local_Dest_ID';
+    public const FIELD_LOCAL_DEST_ID = 'WS_Local_Dest_ID';
 
     /**
      * @const string
      */
-    const FIELD_LOCAL_DEST_NAME = 'WS_Local_Dest_UFNome';
+    public const FIELD_LOCAL_DEST_NAME = 'WS_Local_Dest_UFNome';
 
     /**
      * @const string
      */
-    const FIELD_LOCAL_DEST_IBGE = 'WS_Local_Dest_CodIBGE';
+    public const FIELD_LOCAL_DEST_IBGE = 'WS_Local_Dest_CodIBGE';
 
     /**
      * @const string
      */
-    const FIELD_LOCAL_DEST_POSTCODE = 'WS_Local_Dest_CEP';
+    public const FIELD_LOCAL_DEST_POSTCODE = 'WS_Local_Dest_CEP';
 
     /**
      * @const string
      */
-    const FIELD_SEGMENT_ID = 'WS_Seguimento_ID';
+    public const FIELD_SEGMENT_ID = 'WS_Seguimento_ID';
 
     /**
      * @const string
      */
-    const FIELD_DEST_CNPJ = 'WS_Dest_CNPJ';
+    public const FIELD_DEST_CNPJ = 'WS_Dest_CNPJ';
 
     /**
      * @const string
      */
-    const FIELD_DEST_CPF = 'WS_Dest_CPF';
+    public const FIELD_DEST_CPF = 'WS_Dest_CPF';
 
     /**
      * @const string
      */
-    const FIELD_DIMENSIONS_TOTAL_VALUE = 'WS_Dim_ValTot';
+    public const FIELD_DIMENSIONS_TOTAL_VALUE = 'WS_Dim_ValTot';
 
     /**
      * @const string
      */
-    const FIELD_WEIGHT_TOTAL_VALUE = 'WS_Peso_ValTot';
+    public const FIELD_WEIGHT_TOTAL_VALUE = 'WS_Peso_ValTot';
 
     /**
      * @const string
      */
-    const FIELD_INVOICE_TOTAL_VALUE = 'WS_NFiscal_ValTot';
+    public const FIELD_INVOICE_TOTAL_VALUE = 'WS_NFiscal_ValTot';
 
     /**
      * @const string
      */
-    const FIELD_CHEAPER_QUOTE = 'IsMenorCotacao';
+    public const FIELD_CHEAPER_QUOTE = 'IsMenorCotacao';
 
     /**
      * @const string
      */
-    const FIELD_RESPONSE_QUOTE_TYPE = 'WS_TpRespCot';
+    public const FIELD_RESPONSE_QUOTE_TYPE = 'WS_TpRespCot';
 
     /**
      * @param string $cnpj

@@ -12,7 +12,7 @@ interface QuoteInterface
     /**
      * @var string
      */
-    const FIELD_SHIPPING_SERVICES = 'shipping_services';
+    public const FIELD_SHIPPING_SERVICES = 'shipping_services';
 
     /**
      * @return array
