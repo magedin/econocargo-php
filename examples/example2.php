@@ -1,9 +1,12 @@
 <?php
 
+use EconoCargo\ApiFactory;
+use EconoCargo\Options\Request\QuoteResponseType;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 try {
-    $api = \EconoCargo\ApiFactory::create();
+    $api = ApiFactory::create();
 
     /** Activating testing mode (API Sandbox). */
     $api->config()->service()->isTesting(true);
@@ -21,7 +24,7 @@ try {
         ->setWeightTotalValue(150)
         ->setInvoiceTotalValue(1500)
         ->setCheaperQuote(true)
-        ->setResponseQuoteType(\EconoCargo\Options\Request\QuoteResponseType::TYPE_ALL)
+        ->setResponseQuoteType(QuoteResponseType::TYPE_ALL)
     ;
 
     $result = $quote->execute();
