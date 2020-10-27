@@ -4,7 +4,12 @@ declare(strict_types = 1);
 
 namespace EconoCargo\Logger;
 
+use DI\DependencyException;
+use DI\NotFoundException;
 use EconoCargo\Framework\ObjectManager;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
+use Psr\Log\LoggerInterface;
 
 /**
  * Class LoggerFactory
@@ -18,6 +23,7 @@ class LoggerFactory
 
     /**
      * LoggerFactory constructor.
+     *
      * @param ObjectManager $objectManager
      */
     public function __construct(
@@ -27,22 +33,22 @@ class LoggerFactory
     }
 
     /**
-     * @param string $name
+     * @param string      $name
+     * @param string|null $filename
      *
-     * @return \Psr\Log\LoggerInterface
-     *
-     * @throws \DI\DependencyException
-     * @throws \DI\NotFoundException
+     * @return LoggerInterface
+     * @throws DependencyException
+     * @throws NotFoundException
      */
-    public function getLogger($name, $filename = null)
+    public function getLogger(string $name, string $filename = null)
     {
-        /** @var \Psr\Log\LoggerInterface $logger */
-        $logger = $this->objectManager->create(\Psr\Log\LoggerInterface::class, ['name' => $name]);
+        /** @var LoggerInterface $logger */
+        $logger = $this->objectManager->create(LoggerInterface::class, ['name' => $name]);
 
         if ($filename) {
-            $handler = new \Monolog\Handler\StreamHandler(
+            $handler = new StreamHandler(
                 $filename,
-                \Monolog\Logger::DEBUG
+                Logger::DEBUG
             );
             $logger->pushHandler($handler);
         }
