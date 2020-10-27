@@ -1,0 +1,20 @@
+dist: trusty
+language: php
+env:
+    global:
+        - CODACY_PROJECT_TOKEN=95acc1fcf0a2418eb9d4de94545958e7
+php:
+    - 7.0
+    - 7.1
+    - 7.2
+    - 7.3
+    - hhvm
+matrix:
+    allow_failures:
+        - php: hhvm
+before_script:
+    - composer install --no-interaction
+script:
+    - composer tests-codacy
+after_script:
+    - vendor/bin/codacycoverage clover temp/coverage/xml/codacy.xml
