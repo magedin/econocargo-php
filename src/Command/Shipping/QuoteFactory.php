@@ -8,7 +8,6 @@ use EconoCargo\Framework\Object\FactoryAbstract;
 
 /**
  * Class QuoteFactory
- * @package EconoCargo\Shipping
  */
 class QuoteFactory extends FactoryAbstract
 {
