@@ -1,5 +1,8 @@
 # econoCARGO PHP SDK
 
+[![Build Status](https://travis-ci.com/magedin/econocargo-php.svg?branch=main)](https://travis-ci.com/magedin/econocargo-php)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/bdeae8b97e744a6aa09b8faf7d7b24dd)](https://www.codacy.com/gh/magedin/econocargo-php/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=magedin/econocargo-php&amp;utm_campaign=Badge_Grade)
+
 ### About
 This is the official SDK (Software Development Kit) for econoCARGO API. This SDK is intended to help with PHP systems and econoCARGO API.
 
