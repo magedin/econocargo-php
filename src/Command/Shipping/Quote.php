@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace EconoCargo\Command\Shipping;
 
@@ -21,13 +21,13 @@ class Quote extends CommandAbstract implements QuoteInterface
     /**
      * Quote constructor.
      *
-     * @param ConnectionInterface             $connection
-     * @param SerializerInterface      $serializer
+     * @param ConnectionInterface                                 $connection
+     * @param SerializerInterface                                 $serializer
      * @param \EconoCargo\ObjectType\Entity\Shipping\QuoteFactory $typeFactory
      */
     public function __construct(
-        \EconoCargo\Service\ConnectionInterface $connection,
-        \EconoCargo\Framework\Data\SerializerInterface $serializer,
+        ConnectionInterface $connection,
+        SerializerInterface $serializer,
         \EconoCargo\ObjectType\Entity\Shipping\QuoteFactory $typeFactory
     ) {
         parent::__construct($connection, $serializer, $typeFactory);
@@ -36,7 +36,7 @@ class Quote extends CommandAbstract implements QuoteInterface
     /**
      * @inheritDoc
      */
-    public function setCompanyCNPJ(string $cnpj) : QuoteInterface
+    public function setCompanyCNPJ(string $cnpj): QuoteInterface
     {
         return $this->setData(self::FIELD_COMPANY_CNPJ, $cnpj);
     }
@@ -44,7 +44,7 @@ class Quote extends CommandAbstract implements QuoteInterface
     /**
      * @inheritDoc
      */
-    public function setOrderNumber(string $orderNumber) : QuoteInterface
+    public function setOrderNumber(string $orderNumber): QuoteInterface
     {
         return $this->setData(self::FIELD_ORDER_NUMBER, $orderNumber);
     }
@@ -52,7 +52,7 @@ class Quote extends CommandAbstract implements QuoteInterface
     /**
      * @inheritDoc
      */
-    public function setDestinyId(string $id) : QuoteInterface
+    public function setDestinyId(string $id): QuoteInterface
     {
         return $this->setData(self::FIELD_LOCAL_DEST_ID, $id);
     }
@@ -60,88 +60,88 @@ class Quote extends CommandAbstract implements QuoteInterface
     /**
      * @inheritDoc
      */
-    public function setDestinyUFName(string $name) : QuoteInterface
+    public function setDestinyUFName(string $name): QuoteInterface
     {
-        return $this->setData(self::FIELD_LOCAL_DEST_NAME , $name);
+        return $this->setData(self::FIELD_LOCAL_DEST_NAME, $name);
     }
 
     /**
      * @inheritDoc
      */
-    public function setDestinyIBGECode(int $code) : QuoteInterface
+    public function setDestinyIBGECode(int $code): QuoteInterface
     {
-        return $this->setData(self::FIELD_LOCAL_DEST_IBGE , $code);
+        return $this->setData(self::FIELD_LOCAL_DEST_IBGE, $code);
     }
 
     /**
      * @inheritDoc
      */
-    public function setDestinyPostcode(string $postcode) : QuoteInterface
+    public function setDestinyPostcode(string $postcode): QuoteInterface
     {
-        return $this->setData(self::FIELD_LOCAL_DEST_POSTCODE , $postcode);
+        return $this->setData(self::FIELD_LOCAL_DEST_POSTCODE, $postcode);
     }
 
     /**
      * @inheritDoc
      */
-    public function setSegmentId(int $segmentId) : QuoteInterface
+    public function setSegmentId(int $segmentId): QuoteInterface
     {
-        return $this->setData(self::FIELD_SEGMENT_ID , $segmentId);
+        return $this->setData(self::FIELD_SEGMENT_ID, $segmentId);
     }
 
     /**
      * @inheritDoc
      */
-    public function setDestinyCNPJ(string $cnpj) : QuoteInterface
+    public function setDestinyCNPJ(string $cnpj): QuoteInterface
     {
-        return $this->setData(self::FIELD_DEST_CNPJ , $cnpj);
+        return $this->setData(self::FIELD_DEST_CNPJ, $cnpj);
     }
 
     /**
      * @inheritDoc
      */
-    public function setDestinyCPF(string $cpf) : QuoteInterface
+    public function setDestinyCPF(string $cpf): QuoteInterface
     {
-        return $this->setData(self::FIELD_DEST_CPF , $cpf);
+        return $this->setData(self::FIELD_DEST_CPF, $cpf);
     }
 
     /**
      * @inheritDoc
      */
-    public function setDimensionsTotalValue(float $value) : QuoteInterface
+    public function setDimensionsTotalValue(float $value): QuoteInterface
     {
-        return $this->setData(self::FIELD_DIMENSIONS_TOTAL_VALUE , $value);
+        return $this->setData(self::FIELD_DIMENSIONS_TOTAL_VALUE, $value);
     }
 
     /**
      * @inheritDoc
      */
-    public function setWeightTotalValue(float $value) : QuoteInterface
+    public function setWeightTotalValue(float $value): QuoteInterface
     {
-        return $this->setData(self::FIELD_WEIGHT_TOTAL_VALUE , $value);
+        return $this->setData(self::FIELD_WEIGHT_TOTAL_VALUE, $value);
     }
 
     /**
      * @inheritDoc
      */
-    public function setInvoiceTotalValue(float $value) : QuoteInterface
+    public function setInvoiceTotalValue(float $value): QuoteInterface
     {
-        return $this->setData(self::FIELD_INVOICE_TOTAL_VALUE , $value);
+        return $this->setData(self::FIELD_INVOICE_TOTAL_VALUE, $value);
     }
 
     /**
      * @inheritDoc
      */
-    public function setCheaperQuote(bool $cheaperQuote) : QuoteInterface
+    public function setCheaperQuote(bool $cheaperQuote): QuoteInterface
     {
-        return $this->setData(self::FIELD_CHEAPER_QUOTE , $cheaperQuote);
+        return $this->setData(self::FIELD_CHEAPER_QUOTE, $cheaperQuote);
     }
 
     /**
      * @inheritDoc
      */
-    public function setResponseQuoteType(int $type) : QuoteInterface
+    public function setResponseQuoteType(int $type): QuoteInterface
     {
-        return $this->setData(self::FIELD_RESPONSE_QUOTE_TYPE , $type);
+        return $this->setData(self::FIELD_RESPONSE_QUOTE_TYPE, $type);
     }
 }
