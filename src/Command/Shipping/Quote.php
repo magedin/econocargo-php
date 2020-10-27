@@ -7,6 +7,7 @@ namespace EconoCargo\Command\Shipping;
 use EconoCargo\Command\CommandAbstract;
 use EconoCargo\Framework\Data\SerializerInterface;
 use EconoCargo\Service\ConnectionInterface;
+use TiagoSampaio\Formatter\OnlyNumbers;
 
 /**
  * Class Quote
@@ -38,7 +39,7 @@ class Quote extends CommandAbstract implements QuoteInterface
      */
     public function setCompanyCNPJ(string $cnpj): QuoteInterface
     {
-        return $this->setData(self::FIELD_COMPANY_CNPJ, $cnpj);
+        return $this->setData(self::FIELD_COMPANY_CNPJ, OnlyNumbers::format($cnpj));
     }
 
     /**
@@ -78,7 +79,7 @@ class Quote extends CommandAbstract implements QuoteInterface
      */
     public function setDestinyPostcode(string $postcode): QuoteInterface
     {
-        return $this->setData(self::FIELD_LOCAL_DEST_POSTCODE, $postcode);
+        return $this->setData(self::FIELD_LOCAL_DEST_POSTCODE, OnlyNumbers::format($postcode));
     }
 
     /**
@@ -94,7 +95,7 @@ class Quote extends CommandAbstract implements QuoteInterface
      */
     public function setDestinyCNPJ(string $cnpj): QuoteInterface
     {
-        return $this->setData(self::FIELD_DEST_CNPJ, $cnpj);
+        return $this->setData(self::FIELD_DEST_CNPJ, OnlyNumbers::format($cnpj));
     }
 
     /**
@@ -102,7 +103,7 @@ class Quote extends CommandAbstract implements QuoteInterface
      */
     public function setDestinyCPF(string $cpf): QuoteInterface
     {
-        return $this->setData(self::FIELD_DEST_CPF, $cpf);
+        return $this->setData(self::FIELD_DEST_CPF, OnlyNumbers::format($cpf));
     }
 
     /**
